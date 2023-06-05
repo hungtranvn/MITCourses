@@ -13,30 +13,30 @@ class ProblemSet5NewsStory(unittest.TestCase):
         story = NewsStory('', '', '', '', datetime.now())
 
     def testNewsStoryGetGuid(self):
-        story = NewsStory('test guid', 'test title', 
+        story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_guid(), 'test guid')
 
     def testNewsStoryGetTitle(self):
-        story = NewsStory('test guid', 'test title', 
+        story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_title(), 'test title')
 
     def testNewsStoryGetdescription(self):
-        story = NewsStory('test guid', 'test title', 
+        story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_description(), 'test description')
 
     def testNewsStoryGetLink(self):
-        story = NewsStory('test guid', 'test title', 
+        story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(story.get_link(), 'test link')
 
     def testNewsStoryGetTime(self):
-        story = NewsStory('test guid', 'test title', 
+        story = NewsStory('test guid', 'test title',
                           'test description', 'test link', datetime.now())
         self.assertEqual(type(story.get_pubdate()), datetime)
-        
+
 class ProblemSet5(unittest.TestCase):
     def setUp(self):
         class TrueTrigger:
@@ -74,7 +74,6 @@ class ProblemSet5(unittest.TestCase):
             self.assertTrue(trig.evaluate(spaces), "TitleTrigger failed to fire when the words were separated by multiple spaces.")
             self.assertTrue(trig.evaluate(caps), "TitleTrigger failed to fire when the phrase appeared with both uppercase and lowercase letters.")
             self.assertTrue(trig.evaluate(exact), "TitleTrigger failed to fire when the words in the phrase were the only words in the title.")
-            
             self.assertFalse(trig.evaluate(plural), "TitleTrigger fired when the words in the phrase were contained within other words.")
             self.assertFalse(trig.evaluate(separate), "TitleTrigger fired when the words in the phrase were separated by other words.")
             self.assertFalse(trig.evaluate(brown), "TitleTrigger fired when only part of the phrase was found.")
@@ -106,7 +105,6 @@ class ProblemSet5(unittest.TestCase):
             self.assertTrue(trig.evaluate(spaces), "DescriptionTrigger failed to fire when the words were separated by multiple spaces.")
             self.assertTrue(trig.evaluate(caps), "DescriptionTrigger failed to fire when the phrase appeared with both uppercase and lowercase letters.")
             self.assertTrue(trig.evaluate(exact), "DescriptionTrigger failed to fire when the words in the phrase were the only words in the description.")
-            
             self.assertFalse(trig.evaluate(plural), "DescriptionTrigger fired when the words in the phrase were contained within other words.")
             self.assertFalse(trig.evaluate(separate), "DescriptionTrigger fired when the words in the phrase were separated by other words.")
             self.assertFalse(trig.evaluate(brown), "DescriptionTrigger fired when only part of the phrase was found.")
@@ -119,14 +117,11 @@ class ProblemSet5(unittest.TestCase):
         dt = timedelta(seconds=5)
         now = datetime(2016, 10, 12, 23, 59, 59)
         now = now.replace(tzinfo=pytz.timezone("EST"))
-        
         ancient_time = datetime(1987, 10, 15)
         ancient_time = ancient_time.replace(tzinfo=pytz.timezone("EST"))
         ancient = NewsStory('', '', '', '', ancient_time)
-        
         just_now = NewsStory('', '', '', '', now - dt)
         in_a_bit = NewsStory('', '', '', '', now + dt)
-        
         future_time = datetime(2087, 10, 15)
         future_time = future_time.replace(tzinfo=pytz.timezone("EST"))
         future = NewsStory('', '', '', '', future_time)

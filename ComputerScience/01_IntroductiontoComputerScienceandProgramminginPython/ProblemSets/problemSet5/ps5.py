@@ -266,7 +266,6 @@ def main_thread(master):
         # Problem 11
         # TODO: After implementing read_trigger_config, uncomment this line 
         # triggerlist = read_trigger_config('triggers.txt')
-        
         # HELPER CODE - you don't need to understand this!
         # Draws the popup window that displays the filtered stories
         # Retrieves and filters the stories from the RSS feeds

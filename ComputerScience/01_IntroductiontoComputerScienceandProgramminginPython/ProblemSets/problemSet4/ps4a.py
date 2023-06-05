@@ -8,7 +8,7 @@ def get_permutations(sequence):
     Enumerate all permutations of a given string
 
     sequence (string): an arbitrary string to permute. Assume that it is a
-    non-empty string.  
+    non-empty string.
 
     You MUST use recursion for this part. Non-recursive solutions will not be
     accepted.
@@ -25,7 +25,6 @@ def get_permutations(sequence):
 
     if len(sequence) == 1:
         return [sequence]
-    
     result = []
     for i, let in enumerate(sequence):
         for p in get_permutations(sequence[:i] + sequence[i + 1:]):
@@ -38,7 +37,7 @@ if __name__ == '__main__':
 #    print('Input:', example_input)
 #    print('Expected Output:', ['abc', 'acb', 'bac', 'bca', 'cab', 'cba'])
 #    print('Actual Output:', get_permutations(example_input))
-    
+
 #    # Put three example test cases here (for your sanity, limit your inputs
 #    to be three characters or fewer as you will have n! permutations for a 
 #    sequence of length n)

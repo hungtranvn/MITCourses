@@ -24,7 +24,7 @@ while abs(current_savings - portion_down_payment) > 100:
     annual_salary = starting_salary
     current_savings = 0.0
     print(guess_rate)
-    
+
     for i in range(1, saving_months + 1):
         current_savings += (guess_rate/100)*(annual_salary/12) + current_savings*(annual_return/12)
 
@@ -32,15 +32,15 @@ while abs(current_savings - portion_down_payment) > 100:
             annual_salary += annual_salary * semi_annual_raise
 
     print(current_savings)
-    
+
     if current_savings > portion_down_payment:
         max_rate = guess_rate
     else:
         min_rate = guess_rate
-        
+
     guess_rate = (max_rate + min_rate) / 2.0
     steps += 1
-    
+
 if guess_rate <= 100:
     print "Best savings rate: ", guess_rate / 100
     print "Steps in bisection search:", steps
