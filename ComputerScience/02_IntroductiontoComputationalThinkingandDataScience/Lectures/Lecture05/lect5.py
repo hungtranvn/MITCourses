@@ -45,13 +45,11 @@ class Location(object):
 class Field(object):
     def __init__(self):
         self.drunks = {}
-        
     def addDrunk(self, drunk, loc):
         if drunk in self.drunks:
             raise ValueError('Duplicate drunk')
         else:
             self.drunks[drunk] = loc
-            
     def moveDrunk(self, drunk):
         if drunk not in self.drunks:
             raise ValueError('Drunk not in field')
@@ -59,7 +57,6 @@ class Field(object):
         #use move method of Location to get new location
         self.drunks[drunk] =\
             self.drunks[drunk].move(xDist, yDist)
-        
     def getLoc(self, drunk):
         if drunk not in self.drunks:
             raise ValueError('Drunk not in field')
@@ -89,13 +86,13 @@ class MasochistDrunk(Drunk):
 def walk(f, d, numSteps):
     """Assumes: f a Field, d a Drunk in f, and numSteps an int >= 0.
        Moves d numSteps times, and returns the distance between
-       the final location and the location at the start of the 
+       the final location and the location at the start of the
        walk."""
     start = f.getLoc(d)
     for s in range(numSteps):
         f.moveDrunk(d)
     return start.distFrom(f.getLoc(d))
-    
+
 def simWalks(numSteps, numTrials, dClass):
     """Assumes numSteps an int >= 0, numTrials an int > 0,
          dClass a subclass of Drunk
@@ -121,14 +118,14 @@ def drunkTest(walkLengths, numTrials, dClass):
         print(dClass.__name__, 'random walk of', numSteps, 'steps')
         print(' Mean =', round(sum(distances)/len(distances), 4))
         print(' Max =', max(distances), 'Min =', min(distances))
-        
+
 random.seed(0)
 drunkTest((10, 100, 1000, 10000), 100, UsualDrunk)
 #
 def simAll(drunkKinds, walkLengths, numTrials):
     for dClass in drunkKinds:
         drunkTest(walkLengths, numTrials, dClass)
-        
+
 #random.seed(0)
 #simAll((UsualDrunk, MasochistDrunk),
 #       (1000, 10000), 100)
@@ -152,7 +149,7 @@ class styleIterator(object):
         else:
             self.index += 1
         return result
-    
+
 def simDrunk(numTrials, dClass, walkLengths):
     meanDistances = []
     for numSteps in walkLengths:
@@ -245,7 +242,7 @@ class OddField(Field):
         y = self.drunks[drunk].getY()
         if (x, y) in self.wormholes:
             self.drunks[drunk] = self.wormholes[(x, y)]
-            
+
 #TraceWalk using oddField          
 def traceWalk(fieldKinds, numSteps):
     styleChoice = styleIterator(('b+', 'r^', 'ko'))

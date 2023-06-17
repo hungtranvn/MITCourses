@@ -64,7 +64,7 @@ class AmRoulette(EuRoulette):
         self.pockets.append('00')
     def __str__(self):
         return 'American Roulette'
-        
+
 def findPocketReturn(game, numTrials, trialSize, toPrint):
     pocketReturns = []
     for t in range(numTrials):
@@ -87,7 +87,7 @@ for numSpins in (1000, 10000, 100000, 1000000):
         expReturn = 100*sum(pocketReturns)/len(pocketReturns)
         print('Exp. return for', G(), '=',
              str(round(expReturn, 4)) + '%')
-             
+
 def getMeanAndStd(X):
     mean = sum(X)/float(len(X))
     tot = 0.0

@@ -44,7 +44,7 @@ def playRoulette(game, numSpins, pocket, bet, toPrint):
         print('Expected return betting', pocket, '=',\
               str(100*totPocket/numSpins) + '%\n')
     return (totPocket/numSpins)
-        
+
 def findPocketReturn(game, numTrials, trialSize, toPrint):
     pocketReturns = []
     for t in range(numTrials):
@@ -104,7 +104,7 @@ def checkEmpirical(numTrials):
                                     (mu, sigma))[0]
         print(' Fraction within', numStd,
               'std =', round(area, 4))
-        
+
 #checkEmpirical(3)
 
 ##Test CLT
@@ -153,7 +153,7 @@ def throwNeedles(numNeedles):
         if (x*x + y*y)**0.5 <= 1.0:
             inCircle += 1
     return 2*(inCircle/float(numNeedles))
-    
+
 def getEst(numNeedles, numTrials):
     estimates = []
     for t in range(numTrials):
