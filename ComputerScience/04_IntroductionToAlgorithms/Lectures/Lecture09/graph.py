@@ -32,9 +32,20 @@ class Vertex:
         self.index = index
         self.color = color
         self.distance = distance
-        self.parent = Parent
+        self.parent = parent
     def __str__(self):
-        return f"self.index"
+        return f"{self.index}"
+
+class Graph:
+    def __init__(self):
+        self.vertices = []
+        self.adj = {}
+    def add_vertex(self, vertex):
+        assert vertex not in self.vertices
+        self.vertices.append(vertex)
+        if vertex.parents is not None:
+            for p in parents:
+                self.adj[p].append(vertex.index)
 
 def breadth_first_search(graph, s):
     for v in  graph[s.id]:
@@ -57,7 +68,9 @@ def main():
     dfs(Adj, 0)
 
     print("Construct the graph")
-    graph = {0: {Vertex}}
+    graph = Graph()
+    graph.add_vertex(Vertex(0))
+    print(graph.vertices[0])
     print("object oriented! breadth first search")
 
 
