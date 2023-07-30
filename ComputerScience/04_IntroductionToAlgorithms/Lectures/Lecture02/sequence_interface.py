@@ -15,7 +15,7 @@ class Array_Seq:
 
     def _copy_forward(self, i, n, A, j):
         """
-        copy n elements of seft (from index i) to A (from j)
+        copy n elements of self (from index i) to A (from j)
         """
         for k in range(n):
            A[j + k] = self.A[i + k]
@@ -54,7 +54,7 @@ class Linked_List_Node:
     def __init__(self, x):
         self.item = x
         self.next = None
-    
+
     #TODO revise
     def later_node(self, i):
         if i == 0: return self
@@ -77,7 +77,7 @@ class Linked_List_Seq:
     def build(self, X):
         for a in reversed(X):
             self.insert_first(a)
-    
+
     def get_at(self, i):
         node = self.head.later_node(i)
         return node.item
@@ -91,7 +91,7 @@ class Linked_List_Seq:
         new_node.next = self.head
         self.head = new_node
         self.size += 1
-    
+
     def delete_first(self):
         x = self.head.item
         self.head = self.head.next
@@ -134,7 +134,7 @@ class Dynamic_Array_Seq(Array_Seq):
 
     def __len__(self):
         return self.size
-    
+
     def __iter__(self):
         for i in range(len(self)): yield self.A[i]
 
@@ -162,13 +162,13 @@ class Dynamic_Array_Seq(Array_Seq):
         self.A[self.size - 1] = None
         self.size -= 1
         self.resize(self.size)
-    
+
     def insert_at(self, i, x):
         self.insert_last(None)
         self._copy_backward(i, self.size - (i + 1), self.A, i + 1)
         self.delete_last()
         return x
-    
+
     def insert_first(self, x):
         self.insert_at(0, x)
 
@@ -177,7 +177,7 @@ class Dynamic_Array_Seq(Array_Seq):
 
 def main():
     print("Sequence Interface")
-    
+
     print("Implemented by static array")
     A = Array_Seq()
     A.build([1,2,3,4,5,6,7,8])

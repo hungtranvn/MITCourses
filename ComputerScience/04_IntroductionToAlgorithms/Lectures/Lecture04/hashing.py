@@ -1,8 +1,12 @@
 class DirectAccessArray:
     def __init__(self, u): self = [None] * u
+
     def find(self, k): return self.A[k]
+
     def insert(self, x): self.A[x.key] = x
+
     def delete(self, k): self.A[k] = None
+
     def find_next(self, k):
         for i in range(k, len(self.A)):
             if A[i] is not None:

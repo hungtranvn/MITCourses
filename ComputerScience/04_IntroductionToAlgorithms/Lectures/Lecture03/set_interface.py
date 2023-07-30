@@ -5,13 +5,13 @@ from sequence_interface import Array_Seq
 # set interface implementation
 class Sorted_Array_Set:
     def __init__(self): self.A = Array_Seq()
-    
+
     def __len__(self): return len(self.A)
-    
+
     def __iter__(self): yield from self.A
-    
+
     def iter_order(self): yield from self
-    
+
     def build(self, X):
         self.A.build(X)
         self._sort()
@@ -115,7 +115,7 @@ def insert_last(A, i):
 def merge_sort(A, a = 0, b = None):
     print("merge sort")
     if b is None: b = len(A)
-    
+
     if 1 < b - a:
         c = (a + b + 1) // 2
         merge_sort(A, a, c)
@@ -141,8 +141,6 @@ def main():
     print("test merge sort")
     merge_sort(A)
     print(A)
-
-
 
 if __name__ == "__main__":
     main()
